@@ -1,0 +1,2 @@
+﻿
+dotnet ef migrations add InitialCreate --project ImportantStuff.Data --startup-project ImportantStuff.Api
