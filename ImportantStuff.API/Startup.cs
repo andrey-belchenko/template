@@ -10,6 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ImportantStuff.Data;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.OData.Edm;
+using Microsoft.AspNet.OData.Builder;
+using ImportantStuff.Model;
 
 namespace ImportantStuff.Api
 {
@@ -22,14 +26,27 @@ namespace ImportantStuff.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+
+        private static IEdmModel GetEdmModel()
+        {
+            var builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Project>("Projects");
+            return builder.GetEdmModel();
+        }
+
+
         public void ConfigureServices(IServiceCollection services)
         {
             DataConfigurator.ConfigureServices(services, Configuration);
-            services.AddControllers();
+            services.AddOData();
+            services.AddMvc();
+            services.AddControllers(mvcOptions =>
+                mvcOptions.EnableEndpointRouting = false);
+
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -37,14 +54,14 @@ namespace ImportantStuff.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            
 
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(b =>
             {
-                endpoints.MapControllers();
+                b.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
+
+        
         }
     }
 }

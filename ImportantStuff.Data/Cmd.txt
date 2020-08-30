@@ -1,2 +1,3 @@
-﻿
+﻿dotnet tool install --global dotnet-ef
+dotnet add  ImportantStuff.Api package Microsoft.EntityFrameworkCore.Design   
 dotnet ef migrations add InitialCreate --project ImportantStuff.Data --startup-project ImportantStuff.Api
