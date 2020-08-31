@@ -14,6 +14,9 @@ using Microsoft.AspNet.OData.Extensions;
 using Microsoft.OData.Edm;
 using Microsoft.AspNet.OData.Builder;
 using ImportantStuff.Model;
+using ImportantStuff.Data.MongoDB;
+using Microsoft.Extensions.Options;
+using ImportantStuff.Data.MongoDB.Services;
 
 namespace ImportantStuff.Api
 {
@@ -41,8 +44,14 @@ namespace ImportantStuff.Api
             services.AddOData();
             services.AddMvc();
             services.AddCors();
-            services.AddControllers(mvcOptions =>
-                mvcOptions.EnableEndpointRouting = false);
+
+            services.Configure<BookstoreDatabaseSettings>(Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
+
+            services.AddSingleton<IBookstoreDatabaseSettings>(sp =>sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
+
+            services.AddSingleton<BookService>();
+
+            services.AddControllers(mvcOptions =>mvcOptions.EnableEndpointRouting = false);
 
 
         }
@@ -69,6 +78,9 @@ namespace ImportantStuff.Api
                 b.Select().Expand().Filter().OrderBy().MaxTop(null).Count();
                 b.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
+
+
+
 
             
 

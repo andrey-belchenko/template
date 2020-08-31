@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ImportantStuff.Data.MongoDB\ImportantStuff.Data.MongoDB.csproj" />
     <ProjectReference Include="..\ImportantStuff.Data\ImportantStuff.Data.csproj" />
     <ProjectReference Include="..\ImportantStuff.Model\ImportantStuff.Model.csproj" />
   </ItemGroup>
