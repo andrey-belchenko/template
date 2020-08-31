@@ -40,6 +40,7 @@ namespace ImportantStuff.Api
             DataConfigurator.ConfigureServices(services, Configuration);
             services.AddOData();
             services.AddMvc();
+            services.AddCors();
             services.AddControllers(mvcOptions =>
                 mvcOptions.EnableEndpointRouting = false);
 
@@ -54,12 +55,22 @@ namespace ImportantStuff.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            
+            app.UseCors(a =>
+                {
+                    a.AllowAnyOrigin();
+                    a.AllowAnyMethod();
+                    a.AllowAnyHeader();
+                   
+                }
+            );
 
             app.UseMvc(b =>
             {
+                b.Select().Expand().Filter().OrderBy().MaxTop(null).Count();
                 b.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
+
+            
 
         
         }
