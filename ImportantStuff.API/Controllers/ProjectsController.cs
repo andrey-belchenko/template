@@ -28,7 +28,9 @@ namespace ImportantStuff.Api.Controllers
         {
             var book = new Book();
            // book.Id = "5bfd996f7b8e48dc15ff215e";
-            book.BookName = "Book2";
+            book.BookName = "Book3";
+            book.Pages.Add(new Page { Number = "1" });
+            book.Pages.Add(new Page { Number = "3" });
             var b=_bookService.Create(book);
             return Ok(_dataContext.Project);
         }

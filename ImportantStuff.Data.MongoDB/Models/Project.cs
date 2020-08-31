@@ -20,5 +20,14 @@ namespace ImportantStuff.Data.MongoDB.Models
         public string Category { get; set; }
 
         public string Author { get; set; }
+
+        public List<Page> Pages { get; set; } = new List<Page>();
+    }
+
+    public class Page
+    {
+        
+        public string Number { get; set; }
+
     }
 }
