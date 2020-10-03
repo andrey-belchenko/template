@@ -14,7 +14,7 @@ namespace ImportantStuff.Data.MongoDB.Services
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
-
+         
             _books = database.GetCollection<Book>(settings.BooksCollectionName);
         }
 
