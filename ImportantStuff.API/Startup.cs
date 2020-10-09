@@ -71,11 +71,11 @@ namespace ImportantStuff.Api
             });
 
 
+            app.UseDeveloperExceptionPage();
 
 
-            
 
-        
+
         }
     }
 }

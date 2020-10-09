@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportantStuff.Model", "Imp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportantStuff.Data", "ImportantStuff.Data\ImportantStuff.Data.csproj", "{CD7E3BFA-0659-42CD-9CB3-FF97AEC4FF62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportantStuff.Data.MongoDB", "ImportantStuff.Data.MongoDB\ImportantStuff.Data.MongoDB.csproj", "{576A142E-54BB-4F24-B7A1-8052C4832472}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{CD7E3BFA-0659-42CD-9CB3-FF97AEC4FF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7E3BFA-0659-42CD-9CB3-FF97AEC4FF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7E3BFA-0659-42CD-9CB3-FF97AEC4FF62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{576A142E-54BB-4F24-B7A1-8052C4832472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{576A142E-54BB-4F24-B7A1-8052C4832472}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{576A142E-54BB-4F24-B7A1-8052C4832472}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{576A142E-54BB-4F24-B7A1-8052C4832472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
