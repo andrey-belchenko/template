@@ -52,9 +52,9 @@ namespace ImportantStuff.Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+               
             }
-
+            app.UseDeveloperExceptionPage();
             app.UseCors(a =>
                 {
                     a.AllowAnyOrigin();
@@ -71,7 +71,7 @@ namespace ImportantStuff.Api
             });
 
 
-            app.UseDeveloperExceptionPage();
+       
 
 
 
